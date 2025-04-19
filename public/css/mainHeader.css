@@ -1,0 +1,309 @@
+* {
+            overscroll-behavior: none;
+            font-family: "Poppins", serif;
+            padding: 0;
+            margin: 0;
+        }
+
+
+
+
+        :root {
+            --primary-color: #1C3F60;
+            --secondary-color: #ffff;
+            --text-color: #333;
+            --text-color-secondary: #ffff;
+            --back-color: #DBE2EF;
+        }
+
+        /* ==================================================== */
+        /* heade */
+        header {
+            padding: 0 100px;
+            z-index: 99999;
+            background-color: white
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+        }
+
+        nav {
+            padding-top: 1rem;
+            padding-bottom: 0.5rem;
+            /* padding-left: 5rem;
+padding-right: 4rem;      */
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        body {
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            z-index: 100000;
+            top: 50px;
+            right: 0;
+        }
+
+        .popup ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .popup ul li {
+            padding: 10px 20px;
+        }
+
+        .popup ul li a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+        }
+
+        .popup ul li a:hover {
+            background-color: #f0f0f0;
+        }
+
+
+        .logo {
+
+            /* background-color: yellowgreen; */
+            display: flex;
+
+        }
+
+        .img {
+            width: 6%;
+
+        }
+
+        .logo-text {
+            font-weight: bolder;
+            display: flex;
+            margin-top: 0.4rem;
+            /* align-items: center; */
+            font-size: 20px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .logo-text a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .logo-text-flex {
+            display: flex;
+            margin-left: 2rem;
+        }
+
+        .logo-text-link {
+            margin-left: 2rem;
+            display: flex;
+            margin-top: 0.6rem;
+            /* align-items: center; */
+            font-size: 16px;
+        }
+
+        .logo-text-link a:hover {
+            color: var(--primary-color);
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .logo-text-link a {
+            text-decoration: none;
+            color: black;
+            transition: color 0.3s, text-decoration 0.3s;
+            /* Smooth effect */
+        }
+
+        .logo-text-link a.active {
+            font-weight: bold;
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
+
+
+        .ikon {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            /* background-color: aqua; */
+
+        }
+
+        .menu {
+            margin-top: 0.3rem;
+            justify-content: center;
+            width: 50%;
+            display: flex;
+            /* background-color: red; */
+        }
+
+
+
+
+
+
+        #keranjang-link.active img {
+            filter: brightness(0) saturate(100%) invert(33%) sepia(98%) saturate(1437%) hue-rotate(201deg) brightness(93%) contrast(89%);
+            /* Ubah warna ikon (filter untuk ikon hitam-putih default) */
+            transform: scale(1.1);
+            /* Membuat ikon sedikit lebih besar */
+            transition: all 0.3s ease;
+            /* Efek transisi */
+        }
+
+        #chat-link.active img {
+            filter: brightness(0) saturate(100%) invert(33%) sepia(98%) saturate(1437%) hue-rotate(201deg) brightness(93%) contrast(89%);
+            /* Ubah warna ikon (filter untuk ikon hitam-putih default) */
+            transform: scale(1.1);
+            /* Membuat ikon sedikit lebih besar */
+            transition: all 0.3s ease;
+            /* Efek transisi */
+        }
+
+        #user-link.active img {
+            filter: brightness(0) saturate(100%) invert(33%) sepia(98%) saturate(1437%) hue-rotate(201deg) brightness(93%) contrast(89%);
+            /* Ubah warna ikon (filter untuk ikon hitam-putih default) */
+            transform: scale(1.1);
+            /* Membuat ikon sedikit lebih besar */
+            transition: all 0.3s ease;
+            /* Efek transisi */
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+
+            margin-right: 2rem;
+        }
+
+        .search-container input[type="text"] {
+            width: 100%;
+            padding: 5px 40px 5px 10px;
+            border: 2px solid #ccc;
+            border-radius: 25px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .search-container input[type="text"]:focus {
+            border: 2px solid var(--primary-color);
+        }
+
+        .search-container:focus {
+            border: 2px solid var(--primary-color);
+        }
+
+        .search-container img {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .notification-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .notification-count {
+            position: absolute;
+            top: 2px;
+            right: 25px;
+            background-color: red;
+            color: white;
+            font-size: 10px;
+            font-weight: bold;
+            border-radius: 50%;
+            /* padding: 2px 2px; */
+            min-width: 20px;
+            text-align: center;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+
+
+
+
+        .cart-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .popup-cart {
+            display: none;
+            position: fixed;
+            top: 55px;
+            right: 30px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            z-index: 10000000;
+            width: 300px;
+        }
+
+        .popup-cart ul {
+            list-style: none;
+            padding: 10px;
+            margin: 0;
+        }
+
+        .popup-cart ul li {
+            border-bottom: 1px solid #f0f0f0;
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .popup-cart ul li:last-child {
+            border-bottom: none;
+            text-align: center;
+        }
+
+        .popup-cart ul li a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .popup-cart ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .cart-item-img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+
+        .cart-container:hover .popup-cart {
+            display: block;
+        }

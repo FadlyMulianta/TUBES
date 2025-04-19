@@ -1,0 +1,341 @@
+body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    main {
+      padding: 0 5rem;
+    }
+
+    body {
+      background-color: #f1f1f6;
+    }
+
+
+
+
+
+    .banner img {
+      width: 100%;
+      height: auto;
+    }
+
+
+    .gambar-iklan {
+      margin-top: 20px;
+      display: flex;
+      overflow: hidden;
+      width: 100%;
+      background-color: #f4f4f4;
+      /* Warna latar belakang opsional */
+      position: relative;
+      height: 300px;
+      /* Sesuaikan dengan kebutuhan */
+      border-radius: 10px;
+    }
+
+    .scroll {
+      display: flex;
+      animation: scroll 18s linear infinite;
+      will-change: transform;
+    }
+
+    .scrolbanner {
+      flex-shrink: 0;
+      width: 100%;
+      /* Pastikan setiap banner memenuhi lebar container */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .scrolbanner img {
+      width: 90%;
+      height: auto;
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-150%);
+      }
+    }
+
+
+    .produk {
+        margin-left: 2;
+        margin-top: 1rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        gap: 1.5rem;
+    }
+
+    .produk-grid {
+        /* margin-top: 5rem; */
+        /* padding: 1rem; */
+        background-color: var(--back-color);
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        justify-content: center;
+        transition: all 0.3s ease;
+    }
+
+    .produk-grid:hover {
+        transform: translateY(-20px);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    }
+
+    .produk-gambar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .produk-gambar img {
+        width: 100%;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .produk-detail {
+
+        background-color: var(--back-color);
+        /* padding-top: 3rem; */
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        /* margin-left: 3.1rem;
+  margin-right: 3.1rem; */
+        /* padding-bottom: rem; */
+        /* text-align: center; */
+    }
+    .produk-detail-link{
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .produk-detail-container {
+        margin-left: 10px;
+        margin-top: 10px;
+
+
+    }
+
+    .produk-nama-container {
+        margin-bottom: 5px;
+    }
+
+    .produk-nama {
+        text-transform: uppercase;
+        color: var(--primary-color);
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+    .toko {
+        gap: 5px;
+        display: flex;
+        margin-top: 5px;
+        /* margin-bottom: 3rem; */
+    }
+
+    .toko :where(img) {
+        width: 10%;
+    }
+
+    .like {
+        margin-left: 3px;
+        width: 8%;
+    }
+
+    .lokasi {
+        width: 10%;
+    }
+
+    .toko p {
+
+        font-weight: 400;
+        font-size: 14px;
+    }
+
+    .tombol-beli {
+        margin-top: 15px;
+        /* margin-left: 5rem;
+        margin-right: 5rem; */
+        border-radius: 5px;
+        font-size: 1rem;
+        /* margin-top: 2rem; */
+        text-align: center;
+    }
+
+    .tombol-keranjang {
+        border-radius: 5px;
+        background-color: var(--primary-color);
+        color: white;
+
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        padding-right: 2.6rem;
+        padding-left: 2.6rem;
+        font-weight: 500;
+        font-size: 1rem;
+
+    }
+    button {
+            border: none;
+            cursor: pointer;
+            background: none;
+        }
+
+    /* PopUp */
+    .popup {
+      display: none;
+      position: fixed;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border: 1px solid #ccc;
+      border-radius: 15px;
+      z-index: 1000;
+      top: 50px;
+      /* Adjust this value to position the popup */
+      right: 0;
+    }
+
+    .popup ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .popup ul li {
+      padding: 10px 20px;
+    }
+
+    .popup ul li a {
+      text-decoration: none;
+      color: #333;
+      display: block;
+    }
+
+    .popup ul li a:hover {
+      background-color: #f0f0f0;
+    }
+
+    .button-container {
+      margin: 10px 10px 10px 0px;
+            display: flex;
+            gap: 10px;
+        }
+    .button {
+        padding: 12px;
+        color: white;
+        font-family: Arial, sans-serif;
+        font-size: 10px;
+        border-radius: 5px;
+        text-align: center;
+        transition: background-color 0.3s ease;
+    }
+    .carousel {
+            
+            position: relative;
+            width: 100%;
+            
+            
+            max-width: 1500px;
+            margin: auto;
+            overflow: hidden;
+            margin-bottom: 4rem;
+    }
+
+    .carousel-inner {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-item {
+        min-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .carousel img {
+        width: 100%;
+        
+        display: block;
+    }
+
+    .carousel-indicators {
+        position: absolute;
+
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 5px;
+    }
+
+    .carousel-indicators button {
+        width: 10px;
+        height: 10px;
+        border: none;
+        border-radius: 50%;
+        background-color: #ccc;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .carousel-indicators .active {
+        background-color: #000;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        font-size: 2rem;
+        color: #000;
+        cursor: pointer;
+        z-index: 1;
+    }
+
+    .carousel-control-prev {
+        left: 10px;
+    }
+
+    .carousel-control-next {
+        right: 10px;
+    }
+    .orange {
+        background-color: #f9a825;
+    }
+    .green {
+        background-color: #43a047;
+    }
+    .magenta {
+        background-color: #d81b60;
+    }
+    .teal {
+        background-color: #00838f;
+    }
+    /* Hover effects */
+    .button:hover {
+        background-color: #555;
+    }
+    .orange:hover {
+        background-color: #ff9800;
+    }
+    .green:hover {
+        background-color: #66bb6a;
+    }
+    .magenta:hover {
+        background-color: #ec407a;
+    }
+    .teal:hover {
+        background-color: #00acc1;
+    }

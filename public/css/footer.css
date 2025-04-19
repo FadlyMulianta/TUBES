@@ -1,0 +1,98 @@
+ /* Reset default margin dan padding */
+        
+
+        /* body {
+            
+
+        } */
+
+        :root {
+            --primary-color: #1C3F60;
+            --secondary-color: #ffff;
+            --text-color: #333;
+            --text-color-secondary: #ffff;
+        }
+
+
+
+        /* Footer Styling */
+        .footer {
+            display: flex;
+            flex-direction: column;
+            /* min-height: 100vh; */
+            text-align: center;
+            z-index: 100000000;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 20px 0;
+
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+
+            padding: 10px 20px;
+        }
+
+        .footer-section {
+            flex: 1;
+            margin: 10px;
+            min-width: 200px;
+        }
+
+        .footer-section h2 {
+            margin-bottom: 10px;
+            font-size: 18px;
+            border-bottom: 2px solid #777;
+            display: inline-block;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            font-size: 14px;
+            color: #ddd;
+            text-decoration: none;
+            line-height: 1.5;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 5px;
+        }
+
+        .footer-section ul li a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 10px;
+            border-top: 1px solid #777;
+            padding-top: 10px;
+            font-size: 12px;
+            color: #ccc;
+        }
+
+        .social {
+            margin-left: 2rem;
+            justify-self: center;
+            display: flex;
+            /* justify-content: center; */
+        }
+
+        .social :where(img) {
+            filter: brightness(100);
+            margin-right: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .social :where(img):hover {
+            filter: brightness(200);
+            transform: scale(1.2);
+        }
