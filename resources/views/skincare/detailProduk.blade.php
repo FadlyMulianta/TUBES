@@ -452,7 +452,7 @@
                 </div>
                 <hr>
                 <div class="seller-info">
-                    <img alt="Seller profile picture" src="../gambar/Desain tanpa judul.png" />
+                    <img alt="Seller profile picture" src="{{ asset('asset/gambar/Desain tanpa judul.png') }}" />
                     <div class="seller-details">
                         <span style="font-weight: bold;">{{ $produk['nama_toko'] }}</span>
                         <span>Online 6 jam lalu</span>
@@ -480,11 +480,11 @@
                 </div>
                 <div class="buttons">
                     <div>
-                        <form method="POST" action="../keranjang/autentikasi_keranjang.php">
-                            <input type="hidden" name="id_produk" value="{{ $produk['id'] }}">
-                            <button class="add-to-cart" type="submit" name="submit-keranjang">Tambahkan
-                                Keranjang</button>
-                        </form>
+                        <div class="tombol-beli">
+                            <button class="tombol-keranjang" type="button" data-id="{{ $produk['id'] }}">
+                                <p>+ Keranjang</p>
+                            </button>
+                        </div>
                         <button class="buy-now">Beli Sekarang</button>
                     </div>
                 </div>
@@ -529,13 +529,9 @@
                             </div>
                         </a>
                         <div class="tombol-beli">
-                            <form method="POST" action=".">
-                                @csrf
-                                <input type="hidden" name="id_produk" value="{{ $item->id }}">
-                                <button class="tombol-keranjang" type="submit" name="submit-keranjang">
-                                    <p>+ Keranjang</p>
-                                </button>
-                            </form>
+                            <button class="tombol-keranjang" type="button" data-id="{{ $item->id }}">
+                                <p>+ Keranjang</p>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -652,5 +648,39 @@
 
 
 </body>
+<script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const buttons = document.querySelectorAll('.tombol-keranjang');
+
+                buttons.forEach(button => {
+                    button.addEventListener('click', function(e) {
+                        const idProduk = this.getAttribute('data-id');
+
+                        fetch("{{ route('keranjang.tambah') }}", {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json",
+                                    "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                                },
+                                body: JSON.stringify({
+                                    produk_id: idProduk
+                                })
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.success) {
+                                    alert("Produk berhasil dimasukkan ke keranjang!");
+                                } else {
+                                    alert(data.message || "Gagal menambahkan produk.");
+                                }
+                            })
+                            .catch(err => {
+                                console.error(err);
+                                alert("Terjadi kesalahan.");
+                            });
+                    });
+                });
+            });
+        </script>
 
 </html>
