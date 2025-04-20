@@ -108,7 +108,7 @@
                                 </div>
                             </div>
 
-                            <a href="../pembayaran/bayar_dokter.php">
+                            <a href="{{ route('bayar.dokter', ['id' => $dokter->id]) }}">
                                 <div class="tombol-konsultasi">
                                     <p>Konsultasi</p>
                                 </div>
