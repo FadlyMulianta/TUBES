@@ -46,7 +46,7 @@
                                 {{-- <span class="notification-count">20</span>      --}}
                             </a>
 
-                            <a href="../chat/chat.php" id="chat-link" class="notification-container">
+                            <a href="{{ route('chat') }}" id="chat-link" class="notification-container">
                                 <img src="{{ asset('asset/ikon/chattt.png') }}" alt="" class="menu">
                                 {{-- <span class="notification-count">2</span> --}}
                             </a>
