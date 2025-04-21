@@ -191,7 +191,7 @@
                         </div>
                         <div class="logo-text-flex">
                             <div class="logo-text-link"><a href="{{ route('beranda') }}" id="beranda">Beranda</a></div>
-                            <div class="logo-text-link"><a href="{{ route('login') }}" id="scan">Scan Ai</a></div>
+                            <div class="logo-text-link"><a href="{{ route('artikel.index') }}" id="scan">Artikel</a></div>
                             <div class="logo-text-link"><a href="{{ route('login') }}" id="konsultasi">Konsultasi</a></div>
                             <div class="logo-text-link"><a href="{{ route('login') }}" id="skincare">SkinCare</a></div>
                         </div>
@@ -215,7 +215,7 @@
                                 document.getElementById("user-icon").classList.add("active");
                             }
 
-                    
+
                         </script>
 
 

@@ -4,13 +4,14 @@ namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Pasien extends Authenticatable
 {
     use HasFactory;
 
     protected $table = 'pasien';
-    
+
 
     protected $fillable = [
         'nama',
@@ -37,5 +38,10 @@ class Pasien extends Authenticatable
     public function getAuthPassword()
     {
         return $this->passwordpasien;
+    }
+
+    public function articles(): HasMany
+    {
+        return $this->hasMany(ArticleNews::class);
     }
 }

@@ -18,8 +18,8 @@ class AuthorNews extends Model
         "slug"
     ];
 
-    public function news(): HasMany
-    {
-        return $this->hasMany(ArticleNews::class);
-    }
+    // public function news(): HasMany
+    // {
+    //     return $this->hasMany(ArticleNews::class);
+    // }
 }

@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
 
@@ -26,6 +27,13 @@ class User extends Authenticatable implements FilamentUser
         'namabelakang',
         'role',
     ];
+    // app/Models/User.php
+
+    public function news(): HasMany
+    {
+        return $this->hasMany(ArticleNews::class);
+    }
+
 
     protected $hidden = [
         'password',

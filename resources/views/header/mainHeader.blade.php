@@ -21,7 +21,7 @@
                         </div>
                         <div class="logo-text-flex">
                             <div class="logo-text-link"><a href="{{ route('mainBeranda') }}" id="beranda">Beranda</a></div>
-                            <div class="logo-text-link"><a href="scan.php" id="scan">Scan AI</a></div>
+                            <div class="logo-text-link"><a href="{{ route('artikel.index') }}" id="scan">Artikel</a></div>
                             <div class="logo-text-link"><a href="{{ route('dokter') }}" id="konsultasi">Konsultasi</a></div>
                             <div class="logo-text-link"><a href="{{ route('produk') }}" id="skincare">SkinCare</a></div>
                         </div>
@@ -52,7 +52,7 @@
                             </a>
                             <a href="{{ route('keranjang.index') }}" id="keranjang-link" class="notification-container">
                                 <img id="keranjang" src="{{ asset('asset/ikon/shopping-cart (1).png') }}" alt="" class="menu">
-                                
+
                                 @if($jumlahProdukKeranjang > 0)
                                     <span class="notification-count">{{ $jumlahProdukKeranjang }}</span>
                                 @endif
@@ -60,8 +60,8 @@
 
 
                             <a href="" id="user-icon">
-                                <img src="{{ asset('storage/'.Auth::user()->foto) }}" 
-                                    alt="Foto Profil" 
+                                <img src="{{ asset('storage/'.Auth::user()->foto) }}"
+                                    alt="Foto Profil"
                                     class="menu"
                                     style="width: 30px; aspect-ratio: 1/1; object-fit: cover; border-radius: 50%; border: 1px solid var(--primary-color); display: block; overflow: hidden;">
                             </a>

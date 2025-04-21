@@ -5,19 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ArticleNews extends Model
 {
     use HasFactory, SoftDeletes;
+
     protected $fillable = [
         "name",
-        "slug",
+        // "slug",
         "thumbnail",
         "content",
         "category_id",
-        "author_id",
         "is_featured"
     ];
 
@@ -25,9 +24,4 @@ class ArticleNews extends Model
     {
         return $this->belongsTo(CategoryArticle::class, 'category_id');
     }
-    public function author(): BelongsTo
-    {
-        return $this->belongsTo(AuthorNews::class, 'author_id');
-    }
-
 }

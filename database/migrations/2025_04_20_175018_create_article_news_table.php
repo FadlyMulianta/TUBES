@@ -16,10 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->longText('content');
             $table->string('thumbnail');
-            $table->enum('is_featured',['featured','not_featured'])->default('not_featured');
+            $table->enum('is_featured',['featured','not_featured'])->default('featured');
             $table->foreignId('category_id')->constrained('category_articles')->cascadeOnDelete();
-            $table->foreignId('author_id')->constrained('author_news')->cascadeOnDelete();
-            $table->string('slug')->unique();
+            // $table->string('slug')->unique();
             $table->softDeletes();
             $table->timestamps();
         });

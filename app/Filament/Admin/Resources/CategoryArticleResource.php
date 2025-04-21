@@ -43,7 +43,6 @@ class CategoryArticleResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name')
                 ->searchable(),
-                Tables\Columns\TextColumn::make('slug'),
                 Tables\Columns\ImageColumn::make('icon')
                 ->circular()
                 ->height(50)
