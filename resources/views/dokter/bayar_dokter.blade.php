@@ -241,6 +241,7 @@
     </style>
 </head>
 <body>
+    @include('header.mainHeader')
     <div class="container">
         <div class="profil">
             <h4>Profil Dokter</h4>
@@ -299,7 +300,7 @@
             <!-- Tombol Bayar dan Batal -->
             <div class="payment-buttons">
                 <button class="batal" onclick="batal()"><a href="{{ route('dokter') }}">Batal</a></button>
-                <button class="bayar" onclick="bayar()"><a href="../chat/chat.php">Bayar</a></button>
+                <button class="bayar" onclick="bayar()"><a href="{{ route('chat') }}">Bayar</a></button>
             </div>
         </div>
         <div class="total-pembayaran">
