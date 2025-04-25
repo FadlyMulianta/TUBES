@@ -255,14 +255,14 @@
             </div>
         </div>
         <div class="metode-pembayaran">
-            <div class="waktu">
-                <h4>Pilih Waktu</h4>
-                <label for="tanggal-waktu">Pilih Tanggal:</label>
-                <input type="date" id="tanggal-waktu">
-                <br>
-                <label for="jam">Pilih Jam:</label>
-                <input type="time" id="jam">
-            </div>
+                <div class="waktu">
+                    <h4>Pilih Waktu</h4>
+                    <label for="tanggal-waktu">Pilih Tanggal:</label>
+                    <input type="date" id="tanggal-waktu" min="{{ date('Y-m-d') }}" required>
+                    <br>
+                    <label for="jam">Pilih Jam:</label>
+                    <input type="time" id="jam">
+                </div>
 
             <div class="metode">
                 <h4>Metode Pembayaran</h4>

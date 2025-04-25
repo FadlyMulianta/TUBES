@@ -78,11 +78,17 @@
                                 </div>
                             </div>
                         </a>
-                        <div class="tombol-beli">
-                            <button class="tombol-keranjang" type="button" data-id="{{ $item->id }}">
-                                <p>+ Keranjang</p>
-                            </button>
-                        </div>
+                        @if ($item->stok > 0)
+                            <div class="tombol-beli">
+                                <button class="tombol-keranjang" type="button" data-id="{{ $item->id }}">
+                                    <p>+ Keranjang</p>
+                                </button>
+                            </div>
+                        @else
+                            <div class="tombol-beli">
+                                <p class="stok-habis" style="color: red; font-weight: bold;">Stok Habis</p>
+                            </div>
+                        @endif
                     </div>
                 </div>
             @endforeach
