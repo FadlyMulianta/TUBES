@@ -8,24 +8,29 @@ use Illuminate\Support\Facades\Auth;
 
 class PembayaranController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $user = Auth::user();
+        $produkTerpilih = json_decode($request->input('produk_terpilih'), true);
 
-        // Ambil isi keranjang berdasarkan user yang login, beserta relasi produk
+        if (!$produkTerpilih || !is_array($produkTerpilih)) {
+            return redirect()->back()->with('error', 'Pilih minimal satu produk untuk melanjutkan pembayaran.');
+        }
+
         $keranjang = Keranjang::with('produk')
             ->where('user_id', $user->id)
+            ->whereIn('id', $produkTerpilih)
             ->get();
 
-        // Hitung total harga dari semua produk yang valid di keranjang
         $totalHarga = 0;
         foreach ($keranjang as $item) {
-            if ($item->produk) { // Cek jika relasi produk tidak null
+            if ($item->produk) {
                 $totalHarga += $item->produk->harga * $item->jumlah;
             }
         }
 
-        $jumlahProdukKeranjang = Keranjang::where('user_id', Auth::id())->sum('jumlah');
+        $jumlahProdukKeranjang = $keranjang->sum('jumlah');
+
         return view('skincare.pembayaran', [
             'keranjang' => $keranjang,
             'totalHarga' => $totalHarga,
