@@ -13,6 +13,7 @@ use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\MainBerandaController;
 
 
+
 Route::middleware('auth')->group(function () {
     Route::get('/mainBeranda', [MainBerandaController::class, 'MainberandaTampil'])->name('mainBeranda');
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
@@ -22,6 +23,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/dokter', [DokterController::class, 'dokterTampil'])->name('dokter');
     Route::get('/dokter/bayardokter', [DokterController::class, 'bayardokterTampil'])->name('dokter.bayar');
     Route::get('/bayar-dokter/{id}', [DokterController::class, 'bayardokterTampil'])->name('bayar.dokter');
+
+
 
 
     Route::get('/keranjang', [KeranjangController::class, 'index'])->name('keranjang.index');
