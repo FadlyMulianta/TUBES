@@ -7,7 +7,7 @@ use App\Http\Controllers\DokterController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\ArtikelController;
-
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\MainBerandaController;
@@ -25,7 +25,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/bayar-dokter/{id}', [DokterController::class, 'bayardokterTampil'])->name('bayar.dokter');
 
 
-
+    Route::get('/chat', [ChatController::class, 'chatTampil'])->name('chat');
 
     Route::get('/keranjang', [KeranjangController::class, 'index'])->name('keranjang.index');
     Route::post('/keranjang/tambah', [KeranjangController::class, 'tambah'])->name('keranjang.tambah');

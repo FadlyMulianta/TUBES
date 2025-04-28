@@ -62,7 +62,7 @@
         <input type="text" name="name" id="name" value="{{ old('name') }}" required>
 
         <label for="thumbnail">Thumbnail</label>
-        <input type="file" name="thumbnail" id="thumbnail" accept="image/*" required>
+        <input type="file" name="thumbnail" id="thumbnail" accept="image/*" >
 
         <label for="category_id">Kategori</label>
         <select name="category_id" id="category_id" required>

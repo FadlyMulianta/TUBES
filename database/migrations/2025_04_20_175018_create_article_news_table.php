@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->longText('content');
-            $table->string('thumbnail');
+            $table->string('thumbnail')->default('thumbnails/gambar-0-alodokter.jpg')->nullable();
             $table->enum('is_featured',['featured','not_featured'])->default('featured');
             $table->foreignId('category_id')->constrained('category_articles')->cascadeOnDelete();
             // $table->string('slug')->unique();

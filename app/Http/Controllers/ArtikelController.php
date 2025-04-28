@@ -41,11 +41,13 @@ class ArtikelController extends Controller
             'name' => 'required|string|max:255',
             'content' => 'required|string',
             'category_id' => 'required|exists:category_articles,id',
-            'thumbnail' => 'required|image|mimes:jpg,jpeg,png|max:2048',
+            'thumbnail' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
             'is_featured' => 'nullable|in:featured,not_featured',
         ]);
 
-        $thumbnailPath = $request->file('thumbnail')->store('thumbnails', 'public');
+        $thumbnailPath = $request->hasFile('thumbnail')
+        ? $request->file('thumbnail')->store('thumbnails', 'public')
+        : 'thumbnails/gambar-0-alodokter.jpg';
 
         // Set default is_featured to 'featured' if not provided
         $isFeatured = $request->has('is_featured') ? $request->is_featured : 'featured';
