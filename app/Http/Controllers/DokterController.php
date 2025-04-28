@@ -16,12 +16,15 @@ class DokterController extends Controller
         return view('dokter.dokter', ['dokter' => $dokter, 'jumlahProdukKeranjang' => $jumlahProdukKeranjang]);
     }
     public function bayardokterTampil($id)
-    {   
+    {
+       
+
         $dokter = Dokter::findOrFail($id);
         $jumlahProdukKeranjang = Keranjang::where('user_id', Auth::id())->sum('jumlah');
         return view('dokter.bayar_dokter',compact('dokter', 'jumlahProdukKeranjang'));
 
     }
+    
     
 
     

@@ -32,12 +32,16 @@ Route::middleware('auth')->group(function () {
     Route::delete('/keranjang/{id}', [KeranjangController::class, 'hapus'])->name('keranjang.hapus');
     Route::put('/keranjang/{id}/update', [KeranjangController::class, 'update'])->name('keranjang.update');
     Route::post('/keranjang/clear', [KeranjangController::class, 'bulkAction'])->name('keranjang.clear');
+
     Route::get('/pembayaran', [PembayaranController::class, 'index'])->name('pembayaran.index');
 
     Route::get('/artikel/create', [ArtikelController::class, 'create'])->name('artikel.create');
 
     // Menyimpan artikel
     Route::post('/artikel', [ArtikelController::class, 'store'])->name('artikel.store');
+
+
+    // Route::post('/pembayaran', [PembayaranController::class, 'index'])->name('pembayaran.index');
 
 });
 
