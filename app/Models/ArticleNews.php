@@ -13,7 +13,6 @@ class ArticleNews extends Model
 
     protected $fillable = [
         "name",
-        // "slug",
         "thumbnail",
         "content",
         "category_id",

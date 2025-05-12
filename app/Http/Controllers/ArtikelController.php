@@ -74,4 +74,38 @@ class ArtikelController extends Controller
 
         return view('artikel.show', compact('article', 'isAuthenticated', 'jumlahProdukKeranjang'));
     }
+
+    // ✅ Menampilkan semua artikel dalam format JSON (untuk API)
+    public function apiIndex(Request $request)
+    {
+        $selectedCategory = $request->get('category');
+
+        $articles = ArticleNews::when($selectedCategory, function ($query, $selectedCategory) {
+            return $query->where('category_id', $selectedCategory);
+        })->with('category')->latest()->get();
+
+        return response()->json([
+            'status' => true,
+            'data' => $articles
+        ]);
+    }
+
+    // ✅ Menampilkan detail artikel berdasarkan ID (untuk API)
+    public function apiShow($id)
+    {
+        $article = ArticleNews::with('category')->find($id);
+
+        if (!$article) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Artikel tidak ditemukan'
+            ], 404);
+        }
+
+        return response()->json([
+            'status' => true,
+            'data' => $article
+        ]);
+    }
+
 }

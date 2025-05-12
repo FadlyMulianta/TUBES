@@ -22,4 +22,43 @@ class ProdukController extends Controller
         $jumlahProdukKeranjang = Keranjang::where('user_id', Auth::id())->sum('jumlah');
         return view('skincare.detailProduk', compact('produk', 'produkTerkait', 'jumlahProdukKeranjang'));
     }
+    // Mengambil semua produk
+    public function apiIndex()
+    {
+        $produk = Produk::all();
+
+        return response()->json([
+            'status' => true,
+            'message' => 'List produk berhasil diambil',
+            'data' => $produk,
+        ]);
+    }
+
+    // Menampilkan detail produk berdasarkan slug
+    public function apiShow($slug)
+    {
+        $produk = Produk::where('slug', $slug)->first();
+
+        if (!$produk) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Produk tidak ditemukan',
+            ], 404);
+        }
+
+        $produkTerkait = Produk::where('kategori', $produk->kategori)
+            ->where('id', '!=', $produk->id)
+            ->limit(6)
+            ->get();
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Detail produk berhasil diambil',
+            'data' => [
+                'produk' => $produk,
+                'produk_terkait' => $produkTerkait,
+            ],
+        ]);
+    }
+
 }
