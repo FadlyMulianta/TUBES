@@ -8,6 +8,7 @@ use App\Models\Keranjang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ArtikelController extends Controller
 {
@@ -57,7 +58,9 @@ class ArtikelController extends Controller
             'thumbnail' => $thumbnailPath,
             'content' => $request->content,
             'category_id' => $request->category_id,
-            'is_featured' => $isFeatured, // Set value from request or default
+            'is_featured' => $isFeatured,
+            // 'author_id' => Auth::id(),
+            // 'slug' => Str::slug($request->name) // Set value from request or default
         ]);
 
         return redirect()->route('artikel.index')->with('success', 'Artikel berhasil dibuat!');

@@ -24,6 +24,20 @@ class DokterController extends Controller
         return view('dokter.bayar_dokter',compact('dokter', 'jumlahProdukKeranjang'));
 
     }
+
+    public function apiIndex(Request $request)
+    {
+        $selectedNama = $request->get('nama_dokter');
+
+        $dokters = Dokter::when($selectedNama, function ($query, $selectedNama) {
+            return $query->where('nama_dokter', 'like', '%' . $selectedNama . '%');
+        })->latest()->get();
+
+        return response()->json([
+            'status' => true,
+            'data' => $dokters
+        ]);
+    }
     
     
 

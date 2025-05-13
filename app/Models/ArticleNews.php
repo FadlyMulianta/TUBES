@@ -16,7 +16,9 @@ class ArticleNews extends Model
         "thumbnail",
         "content",
         "category_id",
-        "is_featured"
+        "is_featured",
+        // "author_id",
+        // "slug",
     ];
 
     public function category(): BelongsTo
