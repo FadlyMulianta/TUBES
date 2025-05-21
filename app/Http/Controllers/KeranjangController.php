@@ -101,4 +101,36 @@ class KeranjangController extends Controller
 
         return back()->with('error', 'Tidak ada aksi dipilih.');
     }
+
+    // public function apiIndex(Request $request)
+    // {
+    //     $selectedProduk = $request->get('produk');
+
+    //     $articles = Keranjang::when($selectedProduk, function ($query, $selectedProduk) {
+    //         return $query->where('category_id', $selectedProduk);
+    //     })->with('category')->latest()->get();
+
+    //     return response()->json([
+    //         'status' => true,
+    //         'data' => $articles
+    //     ]);
+    // }
+
+    // // ✅ Menampilkan detail artikel berdasarkan ID (untuk API)
+    // public function apiShow($id)
+    // {
+    //     $article = Keranjang::with('category')->find($id);
+
+    //     if (!$article) {
+    //         return response()->json([
+    //             'status' => false,
+    //             'message' => 'Artikel tidak ditemukan'
+    //         ], 404);
+    //     }
+
+    //     return response()->json([
+    //         'status' => true,
+    //         'data' => $article
+    //     ]);
+    // }
 }
