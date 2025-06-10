@@ -42,17 +42,22 @@ Route::get('/artikel/{id}', [ArtikelController::class, 'show']);
 // == ROUTE TERPROTEKSI (Wajib Mengirim Token Auth) ==
 // =========================================================================
 
+
+
+Route::get('/keranjang', [KeranjangController::class, 'index']);
+Route::post('/keranjang', [KeranjangController::class, 'store']);
+Route::put('/keranjang/{id}', [KeranjangController::class, 'update']); // <-- Typo '/eranjang' sudah diperbaiki
+Route::delete('/keranjang/{id}', [KeranjangController::class, 'destroy']);
+Route::post('/keranjang/bulk-action', [KeranjangController::class, 'bulkAction']);
+
+
 Route::middleware('auth:sanctum')->group(function () {
     // Info User & Logout
     Route::get('/user', [AuthApiController::class, 'user']);
     Route::post('/logout', [AuthApiController::class, 'logout']);
 
     // Keranjang (Semua aksi keranjang butuh login)
-    Route::get('/keranjang', [KeranjangController::class, 'index']);
-    Route::post('/keranjang', [KeranjangController::class, 'store']);
-    Route::put('/keranjang/{id}', [KeranjangController::class, 'update']); // <-- Typo '/eranjang' sudah diperbaiki
-    Route::delete('/keranjang/{id}', [KeranjangController::class, 'destroy']);
-    Route::post('/keranjang/bulk-action', [KeranjangController::class, 'bulkAction']);
+
 
     // Konsultasi (Semua aksi konsultasi butuh login)
     Route::get('/konsultasi', [ConsultationController::class, 'index']);

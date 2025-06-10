@@ -35,7 +35,7 @@ class KeranjangController extends Controller
     {
         $request->validate([
             'user_id' => 'required|integer',
-            'produk_id' => 'required|integer|exists:produks,id',
+            'produk_id' => 'required|integer|exists:produk,id',
         ]);
 
         $item = Keranjang::where('user_id', $request->user_id)
